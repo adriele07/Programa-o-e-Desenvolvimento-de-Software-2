@@ -1,0 +1,436 @@
+MAIN
+
+
+
+/*
+#include <iostream>
+#include <memory>
+#include "Book.hpp"
+#include "Student.hpp"
+#include "Library.hpp"
+
+int main() {
+    // Create a library instance
+    Library library;
+
+    // Add books to the library
+    library.addBook(std::unique_ptr<Book>(new Book(1, "The Great Gatsby", "F. Scott Fitzgerald")));
+    library.addBook(std::unique_ptr<Book>(new Book(2, "1984", "George Orwell")));
+    library.addBook(std::unique_ptr<Book>(new Book(3, "To Kill a Mockingbird", "Harper Lee")));
+
+    // Add students to the library
+    library.addStudent(std::unique_ptr<Student>(new Student("Alice", 1)));
+    library.addStudent(std::unique_ptr<Student>(new Student("Bob", 2)));
+
+    // List books in the library
+    std::cout << "Books in the library:\n";
+    for (const auto& title : library.listBooks()) {
+        std::cout << " - " << title << "\n";
+    }
+
+    // List students in the library
+    std::cout << "Students in the library:\n";
+    for (const auto& name : library.listStudents()) {
+        std::cout << " - " << name << "\n";
+    }
+
+    // Borrow a book
+    try {
+        library.borrowBook(1, "1984");
+        std::cout << "Alice borrowed '1984'\n";
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Error: " << e.what() << "\n";
+    }
+
+    // Check book availability
+    std::cout << "'1984' is " << (library.isBookAvailable("1984") ? "available" : "not available") << "\n";
+
+    // Return a book
+    try {
+        library.returnBook(1, "1984");
+        std::cout << "Alice returned '1984'\n";
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Error: " << e.what() << "\n";
+    }
+
+    // Check book availability again
+    std::cout << "'1984' is " << (library.isBookAvailable("1984") ? "available" : "not available") << "\n";
+
+    return 0;
+}
+
+PRIMEIRA VERSÃO
+
+*/#include <iostream>
+#include <memory>
+#include "Book.hpp"
+#include "Student.hpp"
+#include "Library.hpp"
+
+int main() {
+    // Create a library instance
+    Library library;
+
+    // Add books to the library
+    library.addBook(std::unique_ptr<Book>(new Book(1, "The Great Gatsby", "F. Scott Fitzgerald")));
+    library.addBook(std::unique_ptr<Book>(new Book(2, "1984", "George Orwell")));
+    library.addBook(std::unique_ptr<Book>(new Book(3, "To Kill a Mockingbird", "Harper Lee")));
+
+    // Add students to the library
+    library.addStudent(std::unique_ptr<Student>(new Student("Alice", 1)));
+    library.addStudent(std::unique_ptr<Student>(new Student("Bob", 2)));
+
+    // List books in the library
+    std::cout << "Books in the library:\n";
+    for (const auto& title : library.listBooks()) {
+        std::cout << " - " << title << "\n";
+    }
+
+    // List students in the library
+    std::cout << "Students in the library:\n";
+    for (const auto& name : library.listStudents()) {
+        std::cout << " - " << name << "\n";
+    }
+
+    // Borrow a book
+    try {
+        library.borrowBook(1, "1984");
+        std::cout << "Alice borrowed '1984'\n";
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Error: " << e.what() << "\n";
+    }
+
+    // Check book availability
+    std::cout << "'1984' is " << (library.isBookAvailable("1984") ? "available" : "not available") << "\n";
+
+    // Return a book
+    try {
+        library.returnBook(1, "1984");
+        std::cout << "Alice returned '1984'\n";
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Error: " << e.what() << "\n";
+    }
+
+    // Check book availability again
+    std::cout << "'1984' is " << (library.isBookAvailable("1984") ? "available" : "not available") << "\n";
+
+    return 0;
+}
+
+
+Book.hpp
+
+
+#pragma once
+#include <string>
+#include <chrono>
+#include <ctime>
+
+class Book {
+private:
+    int id;
+    std::string title;
+    std::string author;
+    bool borrowed;
+    std::chrono::system_clock::time_point borrowDate;
+
+public:
+    Book(int id, const std::string& title, const std::string& author);
+
+    int getId() const;
+    std::string getTitle() const;
+    void setTitle(const std::string& title);
+
+    std::string getAuthor() const;
+    void setAuthor(const std::string& author);
+
+    bool isBorrowed() const;
+    void borrow();
+    void returnBook();
+
+    std::chrono::system_clock::time_point getBorrowDate() const;
+};
+
+
+
+
+
+
+Book.cpp
+#include "Book.hpp"
+#include <stdexcept>
+
+Book::Book(int id, const std::string& title, const std::string& author) 
+    : id(id), title(title), author(author), borrowed(false), borrowDate(std::chrono::system_clock::now()) {}
+
+int Book::getId() const {
+    return id;
+}
+
+std::string Book::getTitle() const {
+    return title;
+}
+
+void Book::setTitle(const std::string& title) {
+    this->title = title;
+}
+
+std::string Book::getAuthor() const {
+    return author;
+}
+
+void Book::setAuthor(const std::string& author) {
+    this->author = author;
+}
+
+bool Book::isBorrowed() const {
+    return borrowed;
+}
+
+void Book::borrow() {
+    if (!borrowed) {
+        borrowed = true;
+        borrowDate = std::chrono::system_clock::now();
+    } else {
+        throw std::runtime_error("Book already borrowed");
+    }
+}
+
+void Book::returnBook() {
+    if (borrowed) {
+        borrowed = false;
+    } else {
+        throw std::runtime_error("Book was not borrowed");
+    }
+}
+
+std::chrono::system_clock::time_point Book::getBorrowDate() const {
+    return borrowDate;
+}
+
+
+
+
+Student.hpp
+#pragma once
+#include <string>
+#include <vector>
+#include <algorithm>
+
+class Student {
+private:
+    int id;
+    std::string name;
+    std::vector<int> borrowedBookIds;
+
+public:
+    Student(const std::string& name, int id);
+
+    std::string getName() const;
+    void setName(const std::string& name);
+
+    int getId() const;
+    void setId(int id);
+
+    void borrowBook(int bookId);
+    void returnBook(int bookId);
+    std::vector<int> getBorrowedBooks() const;
+};
+
+
+
+
+Student.cpp
+
+#include "Student.hpp"
+#include <stdexcept>
+
+Student::Student(const std::string& name, int id) : name(name), id(id) {}
+
+std::string Student::getName() const {
+    return name;
+}
+
+void Student::setName(const std::string& name) {
+    if (name.empty()) {
+        throw std::invalid_argument("Name cannot be empty");
+    }
+    this->name = name;
+}
+
+int Student::getId() const {
+    return id;
+}
+
+void Student::setId(int id) {
+    if (id < 0) {
+        throw std::invalid_argument("ID cannot be negative");
+    }
+    this->id = id;
+}
+
+void Student::borrowBook(int bookId) {
+    borrowedBookIds.push_back(bookId);
+}
+
+void Student::returnBook(int bookId) {
+    borrowedBookIds.erase(std::remove(borrowedBookIds.begin(), borrowedBookIds.end(), bookId), borrowedBookIds.end());
+}
+
+std::vector<int> Student::getBorrowedBooks() const {
+    return borrowedBookIds;
+}
+
+
+
+Library.hpp
+#pragma once
+#include <vector>
+#include <memory>
+#include <string>
+#include <unordered_map>
+#include "Book.hpp"
+#include "Student.hpp"
+
+class Library {
+private:
+    std::vector<std::unique_ptr<Book>> books;
+    std::vector<std::unique_ptr<Student>> students;
+    std::unordered_map<int, std::vector<int>> borrowHistory;
+
+public:
+    void addBook(std::unique_ptr<Book> book);
+    void addStudent(std::unique_ptr<Student> student);
+
+    Book* findBook(const std::string& title) const;
+    Student* findStudent(int id) const;
+
+    void borrowBook(int studentId, const std::string& bookTitle);
+    void returnBook(int studentId, const std::string& bookTitle);
+
+    std::vector<std::string> listBooks() const;
+    std::vector<std::string> listStudents() const;
+
+    bool isBookAvailable(const std::string& title) const;
+    bool isStudentRegistered(int id) const;
+    std::vector<int> getStudentBorrowHistory(int studentId) const;
+    std::vector<int> getStudentBorrowedBooks(int studentId) const;
+    std::vector<int> getBookBorrowers(const std::string& bookTitle) const;
+};
+
+
+
+
+
+Library.cpp
+#include "Library.hpp"
+#include <algorithm>
+#include <stdexcept>
+
+void Library::addBook(std::unique_ptr<Book> book) {
+    if (!book) {
+        throw std::invalid_argument("Book cannot be null");
+    }
+    books.push_back(std::move(book));
+}
+
+void Library::addStudent(std::unique_ptr<Student> student) {
+    if (!student) {
+        throw std::invalid_argument("Student cannot be null");
+    }
+    students.push_back(std::move(student));
+}
+
+Book* Library::findBook(const std::string& title) const {
+    for (const auto& book : books) {
+        if (book->getTitle() == title) {
+            return book.get();
+        }
+    }
+    return nullptr;
+}
+
+Student* Library::findStudent(int id) const {
+    for (const auto& student : students) {
+        if (student->getId() == id) {
+            return student.get();
+        }
+    }
+    return nullptr;
+}
+
+void Library::borrowBook(int studentId, const std::string& bookTitle) {
+    Book* book = findBook(bookTitle);
+    Student* student = findStudent(studentId);
+
+    if (book && student && !book->isBorrowed()) {
+        book->borrow();
+        student->borrowBook(book->getId());
+        borrowHistory[studentId].push_back(book->getId());
+    } else {
+        throw std::runtime_error("Error borrowing book: book may not exist, student may not exist, or book may already be borrowed");
+    }
+}
+
+void Library::returnBook(int studentId, const std::string& bookTitle) {
+    Book* book = findBook(bookTitle);
+    Student* student = findStudent(studentId);
+
+    if (book && student && book->isBorrowed()) {
+        book->returnBook();
+        student->returnBook(book->getId());
+    } else {
+        throw std::runtime_error("Error returning book: book may not exist, student may not exist, or book may not be borrowed");
+    }
+}
+
+std::vector<std::string> Library::listBooks() const {
+    std::vector<std::string> bookTitles;
+    for (const auto& book : books) {
+        bookTitles.push_back(book->getTitle());
+    }
+    return bookTitles;
+}
+
+std::vector<std::string> Library::listStudents() const {
+    std::vector<std::string> studentNames;
+    for (const auto& student : students) {
+        studentNames.push_back(student->getName());
+    }
+    return studentNames;
+}
+
+bool Library::isBookAvailable(const std::string& title) const {
+    Book* book = findBook(title);
+    return book && !book->isBorrowed();
+}
+
+bool Library::isStudentRegistered(int id) const {
+    return findStudent(id) != nullptr;
+}
+
+std::vector<int> Library::getStudentBorrowHistory(int studentId) const {
+    auto it = borrowHistory.find(studentId);
+    if (it != borrowHistory.end()) {
+        return it->second;
+    }
+    return {};
+}
+
+std::vector<int> Library::getStudentBorrowedBooks(int studentId) const {
+    Student* student = findStudent(studentId);
+    if (student) {
+        return student->getBorrowedBooks();
+    }
+    return {};
+}
+
+std::vector<int> Library::getBookBorrowers(const std::string& bookTitle) const {
+    std::vector<int> borrowers;
+    for (const auto& [studentId, bookIds] : borrowHistory) {
+        if (std::find(bookIds.begin(), bookIds.end(), findBook(bookTitle)->getId()) != bookIds.end()) {
+            borrowers.push_back(studentId);
+        }
+    }
+    return borrowers;
+}
