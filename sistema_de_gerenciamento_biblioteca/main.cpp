@@ -3,6 +3,8 @@
 #include "CadastroAdministrador.hpp"
 #include "CadastroAluno.hpp"
 #include "LoginAdministrador.hpp"
+#include "Livro.hpp"
+#include "CadastroLivro.hpp"
 
 int main() {
     std::vector<Administrador> administradores;
@@ -67,6 +69,23 @@ int main() {
 
         std::cout << "Aluno registrado com sucesso." << std::endl;
     }
+CadastroLivro cadastroLivro;
+
+    // Adicionar um novo livro
+    std::string titulo, autor;
+    int ano;
+    std::cout << "Digite o título do livro: ";
+    std::cin >> titulo;
+    std::cout << "Digite o autor do livro: ";
+    std::cin >> autor;
+    std::cout << "Digite o ano do livro: ";
+    std::cin >> ano;
+
+    int id = cadastroLivro.getProximoId();
+    cadastroLivro.adicionarLivro({id, titulo, autor, ano});
+    cadastroLivro.salvarLivrosEmArquivo();
+
+    std::cout << "Livro registrado com sucesso." << std::endl;
 
     return 0;
 }
