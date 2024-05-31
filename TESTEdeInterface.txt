@@ -45,7 +45,6 @@ int main(int argc, char *argv[]) {
     mainLayout->addLayout(createAccountLayout);
 
     // Conectar slots e sinais
-    // Aqui você deve conectar os botões a funções que tratem as ações de login e criação de conta
 
     // Exibir janela
     window.show();
