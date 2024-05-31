@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <fstream>
+#include <sstream>
 #include "Livro.hpp"
 
 class CadastroLivro {
@@ -12,26 +13,35 @@ public:
     void adicionarLivro(const Livro& livro) {
         livros.push_back(livro);
         proximoId++;
+        salvarLivrosEmArquivo(livro);
     }
 
     int getProximoId() const {
         return proximoId;
     }
 
-    void salvarLivrosEmArquivo() const {
-        std::ofstream arquivo("livros.txt");
-        for (const auto& livro : livros) {
-            arquivo << livro.getId() << '\n'
-                    << livro.getTitulo() << '\n'
-                    << livro.getAutor() << '\n'
-                    << livro.getAno() << '\n';
-        }
+    void salvarLivrosEmArquivo(const Livro& livro) const {
+        std::ofstream arquivo("livros.txt", std::ios::app);
+        arquivo << livro.getId() << '\n'
+                << livro.getTitulo() << '\n'
+                << livro.getAutor() << '\n'
+                << livro.getAno() << '\n';
     }
 
     Livro* procurarLivro(const std::string& titulo) {
-        for (auto& livro : livros) {
-            if (livro.getTitulo() == titulo) {
-                return &livro;
+        std::ifstream arquivo("livros.txt");
+        std::string linha;
+        while (std::getline(arquivo, linha)) {
+            std::string id = linha;
+            std::getline(arquivo, linha);
+            std::string tituloArquivo = linha;
+            std::getline(arquivo, linha);
+            std::string autor = linha;
+            std::getline(arquivo, linha);
+            std::string ano = linha;
+            if (tituloArquivo == titulo) {
+                Livro* livro = new Livro(std::stoi(id), tituloArquivo, autor, std::stoi(ano));
+                return livro;
             }
         }
         return nullptr;

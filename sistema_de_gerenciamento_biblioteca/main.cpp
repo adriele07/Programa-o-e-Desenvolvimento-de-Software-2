@@ -71,31 +71,32 @@ int main() {
     }
     CadastroLivro cadastroLivro;
 
-    // Adicionar um novo livro
-    std::string titulo, autor;
-    int ano;
-    std::cout << "Digite o título do livro: ";
-    std::cin >> titulo;
-    std::cout << "Digite o autor do livro: ";
-    std::cin >> autor;
-    std::cout << "Digite o ano do livro: ";
-    std::cin >> ano;
 
-    int id = cadastroLivro.getProximoId();
-    cadastroLivro.adicionarLivro({id, titulo, autor, ano});
-    cadastroLivro.salvarLivrosEmArquivo();
+        // Adicionar um novo livro
+        std::string titulo, autor;
+        int ano;
+        std::cout << "Digite o título do livro: ";
+        std::cin >> titulo;
+        std::cout << "Digite o autor do livro: ";
+        std::cin >> autor;
+        std::cout << "Digite o ano do livro: ";
+        std::cin >> ano;
 
-    std::cout << "Livro registrado com sucesso." << std::endl;
+        int id = cadastroLivro.getProximoId();
+        cadastroLivro.adicionarLivro({id, titulo, autor, ano});
 
-    // Procurar um livro
-    std::cout << "Digite o título do livro que você quer procurar: ";
-    std::cin >> titulo;
+        std::cout << "Livro registrado com sucesso." << std::endl;
 
-    Livro* livro = cadastroLivro.procurarLivro(titulo);
-    if (livro != nullptr) {
-        std::cout << "Livro encontrado: " << livro->getTitulo() << ", " << livro->getAutor() << ", " << livro->getAno() << std::endl;
-    } else {
-        std::cout << "Livro não encontrado." << std::endl;
-    }
+        // Procurar um livro
+        std::cout << "Digite o título do livro que você quer procurar: ";
+        std::cin >> titulo;
 
-    return 0;}
+        Livro* livro = cadastroLivro.procurarLivro(titulo);
+        if (livro != nullptr) {
+            std::cout << "Livro encontrado: " << livro->getTitulo() << ", " << livro->getAutor() << ", " << livro->getAno() << std::endl;
+        } else {
+            std::cout << "Livro não encontrado." << std::endl;
+        }
+    
+    return 0;
+}
