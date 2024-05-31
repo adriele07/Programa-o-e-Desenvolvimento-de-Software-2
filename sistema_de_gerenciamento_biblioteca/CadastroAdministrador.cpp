@@ -1,4 +1,4 @@
-#include "Administrador.hpp"
+#include "CadastroAdministrador.hpp"
 #include <fstream>
 
 bool isAdministradorRegistrado(const std::vector<Administrador>& administradores, const std::string& nomeDeUsuario) {

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "Administrador.hpp"
+#include "CadastroAdministrador.hpp"
 #include "CadastroAluno.hpp"
 
 int main() {
