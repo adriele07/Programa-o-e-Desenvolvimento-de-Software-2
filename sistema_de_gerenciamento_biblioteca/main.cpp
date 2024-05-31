@@ -2,6 +2,7 @@
 #include <fstream>
 #include "CadastroAdministrador.hpp"
 #include "CadastroAluno.hpp"
+#include "LoginAdministrador.hpp"
 
 int main() {
     std::vector<Administrador> administradores;
@@ -20,6 +21,19 @@ int main() {
         alunos.push_back({nomeDeUsuario, senha, numeroMatricula});
     }
 
+    // Autenticar um administrador
+    std::cout << "Digite o nome de usuário do administrador: ";
+    std::cin >> nomeDeUsuario;
+    std::cout << "Digite a senha do administrador: ";
+    std::cin >> senha;
+
+    LoginAdministrador loginAdmin(administradores);
+    if (loginAdmin.autenticar(nomeDeUsuario, senha)) {
+        std::cout << "Autenticação bem-sucedida." << std::endl;
+    } else {
+        std::cout << "Erro: Autenticação falhou." << std::endl;
+    }
+
     // Registrar um novo administrador
     std::cout << "Digite o nome de usuário do administrador: ";
     std::cin >> nomeDeUsuario;
@@ -36,7 +50,7 @@ int main() {
         std::cout << "Administrador registrado com sucesso." << std::endl;
     }
 
-    // Registrar um novo aluno
+  
     std::cout << "Digite o nome de usuário do aluno: ";
     std::cin >> nomeDeUsuario;
 
