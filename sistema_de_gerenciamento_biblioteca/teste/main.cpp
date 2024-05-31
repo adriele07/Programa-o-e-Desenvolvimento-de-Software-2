@@ -6,6 +6,7 @@
 #include "LoginAdministrador.hpp"
 #include "Livro.hpp"
 #include "CadastroLivro.hpp"
+#include "Emprestimo.hpp"
 
 int main() {
     std::vector<Administrador> administradores;
@@ -26,9 +27,9 @@ int main() {
 
     // Autenticar um administrador
     std::cout << "Digite o nome de usuário do administrador: ";
-    std::cin >> nomeDeUsuario;
+    std::getline(std::cin, nomeDeUsuario);
     std::cout << "Digite a senha do administrador: ";
-    std::cin >> senha;
+    std::getline(std::cin, senha);
 
     LoginAdministrador loginAdmin(administradores);
     if (loginAdmin.autenticar(nomeDeUsuario, senha)) {
@@ -39,13 +40,13 @@ int main() {
 
     // Registrar um novo administrador
     std::cout << "Digite o nome de usuário do administrador: ";
-    std::cin >> nomeDeUsuario;
+    std::getline(std::cin, nomeDeUsuario);
 
     if (isAdministradorRegistrado(administradores, nomeDeUsuario)) {
         std::cout << "Erro: Administrador já registrado." << std::endl;
     } else {
         std::cout << "Digite a senha do administrador: ";
-        std::cin >> senha;
+        std::getline(std::cin, senha);
 
         administradores.push_back({nomeDeUsuario, senha});
         salvarAdministradoresEmArquivo(administradores);
@@ -53,17 +54,16 @@ int main() {
         std::cout << "Administrador registrado com sucesso." << std::endl;
     }
 
-  
     std::cout << "Digite o nome de usuário do aluno: ";
-    std::cin >> nomeDeUsuario;
+    std::getline(std::cin, nomeDeUsuario);
 
     if (isAlunoRegistrado(alunos, nomeDeUsuario)) {
         std::cout << "Erro: Aluno já registrado." << std::endl;
     } else {
         std::cout << "Digite a senha do aluno: ";
-        std::cin >> senha;
+        std::getline(std::cin, senha);
         std::cout << "Digite o número de matrícula do aluno: ";
-        std::cin >> numeroMatricula;
+        std::getline(std::cin, numeroMatricula);
 
         alunos.push_back({nomeDeUsuario, senha, numeroMatricula});
         salvarAlunosEmArquivo(alunos);
@@ -72,32 +72,58 @@ int main() {
     }
     CadastroLivro cadastroLivro;
 
+    // Adicionar um novo livro
+    std::string titulo, autor;
+    int ano;
+    std::cout << "Digite o título do livro: ";
+    std::getline(std::cin, titulo);
+    std::cout << "Digite o autor do livro: ";
+    std::getline(std::cin, autor);
+    std::cout << "Digite o ano do livro: ";
+    std::cin >> ano;
 
-        // Adicionar um novo livro
-        std::string titulo, autor;
-        int ano;
-        std::cout << "Digite o título do livro: ";
-        std::cin >> titulo;
-        std::cout << "Digite o autor do livro: ";
-        std::cin >> autor;
-        std::cout << "Digite o ano do livro: ";
-        std::cin >> ano;
+    int id = cadastroLivro.getProximoId();
+    cadastroLivro.adicionarLivro({id, titulo, autor, ano});
 
-        int id = cadastroLivro.getProximoId();
-        cadastroLivro.adicionarLivro({id, titulo, autor, ano});
+    std::cout << "Livro registrado com sucesso." << std::endl;
 
-        std::cout << "Livro registrado com sucesso." << std::endl;
+    // Procurar um livro
+    std::cout << "Digite o título do livro que você quer procurar: ";
+    std::cin.ignore();
+    std::getline(std::cin, titulo);
 
-        // Procurar um livro
-        std::cout << "Digite o título do livro que você quer procurar: ";
-        std::cin >> titulo;
+    Livro* livro = cadastroLivro.procurarLivro(titulo);
+    if (livro != nullptr) {
+        std::cout << "Livro encontrado: " << livro->getTitulo() << ", " << livro->getAutor() << ", " << livro->getAno() << std::endl;
+    } else {
+        std::cout << "Livro não encontrado." << std::endl;
+    }
 
-        Livro* livro = cadastroLivro.procurarLivro(titulo);
-        if (livro != nullptr) {
-            std::cout << "Livro encontrado: " << livro->getTitulo() << ", " << livro->getAutor() << ", " << livro->getAno() << std::endl;
-        } else {
-            std::cout << "Livro não encontrado." << std::endl;
+    // Emprestar um livro
+    std::cout << "Digite o nome de usuário do aluno que vai emprestar o livro: ";
+    std::getline(std::cin, nomeDeUsuario);
+
+    Aluno* aluno = nullptr;
+    for (auto& a : alunos) {
+        if (a.nomeDeUsuario == nomeDeUsuario) {
+            aluno = &a;
+            break;
         }
-    
+    }
+
+    if (aluno == nullptr) {
+        std::cout << "Aluno não encontrado." << std::endl;
+        return 0;
+    }
+
+    std::string dataEmprestimo = "2022-01-01"; // Assume 'dataEmprestimo' is the current date in string format
+    if (livro != nullptr) {
+        Emprestimo emprestimo(*livro, *aluno, dataEmprestimo);
+        emprestimo.realizarEmprestimo();
+        std::cout << "Livro emprestado com sucesso." << std::endl;
+    } else {
+        std::cout << "Livro não encontrado." << std::endl;
+    }
+
     return 0;
 }
