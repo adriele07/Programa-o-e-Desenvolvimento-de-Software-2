@@ -28,6 +28,15 @@ public:
         }
     }
 
+    Livro* procurarLivro(const std::string& titulo) {
+        for (auto& livro : livros) {
+            if (livro.getTitulo() == titulo) {
+                return &livro;
+            }
+        }
+        return nullptr;
+    }
+
 private:
     std::vector<Livro> livros;
     int proximoId;

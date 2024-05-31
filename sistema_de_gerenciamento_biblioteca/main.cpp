@@ -69,7 +69,7 @@ int main() {
 
         std::cout << "Aluno registrado com sucesso." << std::endl;
     }
-CadastroLivro cadastroLivro;
+    CadastroLivro cadastroLivro;
 
     // Adicionar um novo livro
     std::string titulo, autor;
@@ -87,5 +87,15 @@ CadastroLivro cadastroLivro;
 
     std::cout << "Livro registrado com sucesso." << std::endl;
 
-    return 0;
-}
+    // Procurar um livro
+    std::cout << "Digite o título do livro que você quer procurar: ";
+    std::cin >> titulo;
+
+    Livro* livro = cadastroLivro.procurarLivro(titulo);
+    if (livro != nullptr) {
+        std::cout << "Livro encontrado: " << livro->getTitulo() << ", " << livro->getAutor() << ", " << livro->getAno() << std::endl;
+    } else {
+        std::cout << "Livro não encontrado." << std::endl;
+    }
+
+    return 0;}
