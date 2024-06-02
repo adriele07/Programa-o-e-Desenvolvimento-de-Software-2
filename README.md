@@ -18,6 +18,9 @@ Alunos têm permissão para realizar seu próprio cadastro, consultar os livros 
 
 Administradores, além de todas as funções de um aluno, podem cadastrar, editar e deletar livros, cadastrar, editar e deletar alunos, gerenciar devoluções, além de terem acesso ao repositório com os dados armazenados. 
 ### Soluçôes Implementadas  
+ explicar o codigo no geral (visão geral da arquitetura, descrição das funcionalidades)
 ### Arquitetura do Sistema 
+  Modulagem, User Stories, Descrição de classes, métodos e estruturas de dados
 ### Instruções de uso e instalação
-### Desafios do desenvolvimento 
+
+### Desafios do desenvolvimento e testes  
