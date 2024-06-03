@@ -8,8 +8,7 @@
 
 class Emprestimo {
 public:
-    Emprestimo(Livro& livro, Aluno& aluno, const std::string& dataEmprestimo)
-        : livro(livro), aluno(aluno), dataEmprestimo(dataEmprestimo) {}
+    Emprestimo(Livro& livro, Aluno& aluno, const std::string& dataEmprestimo);
 
     void realizarEmprestimo();
 
@@ -17,6 +16,8 @@ private:
     Livro& livro;
     Aluno& aluno;
     std::string dataEmprestimo;
+
+    bool isLivroEmprestado();
 };
 
 #endif // EMPRESTIMO_HPP
