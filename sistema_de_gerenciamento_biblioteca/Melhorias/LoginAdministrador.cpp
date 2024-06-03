@@ -1,5 +1,6 @@
 //LoginAdministrador.cpp
 #include "LoginAdministrador.hpp"
+#include <algorithm> // Include this header for std::find_if
 
 LoginAdministrador::LoginAdministrador(const std::vector<Administrador>& administradores) : administradores(administradores) {}
 
