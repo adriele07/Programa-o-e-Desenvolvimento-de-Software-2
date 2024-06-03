@@ -17,5 +17,5 @@ void salvarAlunosEmArquivo(const std::vector<Aluno>& alunos) {
     for (const auto& aluno : alunos) {
         arquivo << aluno.nomeDeUsuario << "\n" << aluno.senha << "\n" << aluno.numeroMatricula << "\n";
     }
-    arquivo.close(); // Fechar o arquivo após escrever os dados
+    arquivo.close(); // Fechar o arquivo apÃ³s escrever os dados
 }

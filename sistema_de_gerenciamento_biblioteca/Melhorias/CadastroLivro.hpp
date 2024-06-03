@@ -27,7 +27,7 @@ public:
             << livro.getTitulo() << '\n'
             << livro.getAutor() << '\n'
             << livro.getAno() << '\n';
-        arquivo.close(); // Fechar o arquivo após escrever nele
+        arquivo.close(); // Fechar o arquivo apÃ³s escrever nele
     }
 
     Livro* procurarLivro(const std::string& titulo) {
@@ -46,7 +46,7 @@ public:
                 return new Livro(std::stoi(id), tituloArquivo, autor, std::stoi(ano));
             }
         }
-        arquivo.close(); // Fechar o arquivo caso não encontre o livro
+        arquivo.close(); // Fechar o arquivo caso nÃ£o encontre o livro
         return nullptr;
     }
 
