@@ -16,7 +16,7 @@
 std::string getCurrentDate() {
     std::time_t now = std::time(nullptr);
     std::tm localTime;
-    localtime_s(&localTime, &now);
+    localtime_r(&now, &localTime);
     std::ostringstream oss;
     oss << std::put_time(&localTime, "%Y-%m-%d");
     return oss.str();
