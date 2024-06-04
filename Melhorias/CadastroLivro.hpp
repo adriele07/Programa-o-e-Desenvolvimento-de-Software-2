@@ -1,4 +1,4 @@
-// CadastroLivro.hpp
+//CadastroLivro.hpp
 #ifndef CADASTRO_LIVRO_HPP
 #define CADASTRO_LIVRO_HPP
 
@@ -24,10 +24,9 @@ public:
     void salvarLivrosEmArquivo(const Livro& livro) const {
         std::ofstream arquivo("livros.txt", std::ios::app);
         arquivo << livro.getId() << '\n'
-            << livro.getTitulo() << '\n'
-            << livro.getAutor() << '\n'
-            << livro.getAno() << '\n';
-        arquivo.close(); // Fechar o arquivo após escrever nele
+                << livro.getTitulo() << '\n'
+                << livro.getAutor() << '\n'
+                << livro.getAno() << '\n';
     }
 
     Livro* procurarLivro(const std::string& titulo) {
@@ -42,11 +41,10 @@ public:
             std::getline(arquivo, linha);
             std::string ano = linha;
             if (tituloArquivo == titulo) {
-                arquivo.close(); // Fechar o arquivo antes de retornar
-                return new Livro(std::stoi(id), tituloArquivo, autor, std::stoi(ano));
+                Livro* livro = new Livro(std::stoi(id), tituloArquivo, autor, std::stoi(ano));
+                return livro;
             }
         }
-        arquivo.close(); // Fechar o arquivo caso não encontre o livro
         return nullptr;
     }
 

@@ -1,4 +1,4 @@
-// Emprestimo.hpp
+//Emprestimo.hpp
 #ifndef EMPRESTIMO_HPP
 #define EMPRESTIMO_HPP
 
@@ -9,7 +9,7 @@
 class Emprestimo {
 public:
     Emprestimo(Livro& livro, Aluno& aluno, const std::string& dataEmprestimo);
-    bool isLivroEmprestado() const;
+    bool isLivroEmprestado();
     void realizarEmprestimo();
     Livro& getLivro();
 

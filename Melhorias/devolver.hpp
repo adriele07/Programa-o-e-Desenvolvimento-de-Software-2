@@ -3,6 +3,8 @@
 #define DEVOLVER_HPP
 
 #include "Emprestimo.hpp"
+#include "Livro.hpp"
+#include "CadastroAluno.hpp"
 
 class Devolver {
 public:

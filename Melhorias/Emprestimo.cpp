@@ -7,9 +7,9 @@
 Emprestimo::Emprestimo(Livro& livro, Aluno& aluno, const std::string& dataEmprestimo)
     : livro(livro), aluno(aluno), dataEmprestimo(dataEmprestimo) {}
 
-bool Emprestimo::isLivroEmprestado() const {
+bool Emprestimo::isLivroEmprestado() {
     std::ifstream arquivo("emprestimos.txt");
-    if (!arquivo) {
+    if (!arquivo.is_open()) {
         std::cerr << "Erro: Não foi possível abrir o arquivo emprestimos.txt" << std::endl;
         return false;  // Retornar false pois não foi possível verificar o arquivo
     }
@@ -18,16 +18,14 @@ bool Emprestimo::isLivroEmprestado() const {
     while (std::getline(arquivo, linha)) {
         std::stringstream ss(linha);
         std::string campo;
-        if (std::getline(ss, campo, ',')) {  // ID do livro
-            try {
-                if (std::stoi(campo) == livro.getId()) {  // Verifica se o livro está emprestado
-                    return true;
-                }
+        std::getline(ss, campo, ',');  // ID do livro
+        try {
+            if (std::stoi(campo) == livro.getId()) {  // Verifica se o livro está emprestado
+                return true;
             }
-            catch (const std::invalid_argument& e) {
-                std::cerr << "Erro: ID do livro inválido no arquivo emprestimos.txt" << std::endl;
-                continue;
-            }
+        } catch (const std::invalid_argument& e) {
+            std::cerr << "Erro: ID do livro inválido no arquivo emprestimos.txt" << std::endl;
+            continue;
         }
     }
 
@@ -45,7 +43,7 @@ void Emprestimo::realizarEmprestimo() {
     livro.emprestar();
 
     std::ofstream arquivo("emprestimos.txt", std::ios::app);
-    if (!arquivo) {
+    if (!arquivo.is_open()) {
         std::cerr << "Erro: Não foi possível abrir o arquivo emprestimos.txt" << std::endl;
         return;  // Interrompe a execução se o arquivo não puder ser aberto
     }
@@ -60,7 +58,6 @@ void Emprestimo::realizarEmprestimo() {
 
     std::cout << "Livro emprestado com sucesso." << std::endl;
 }
-
 Livro& Emprestimo::getLivro() {
     return livro;
 }

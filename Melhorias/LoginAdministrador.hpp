@@ -1,4 +1,4 @@
-// LoginAdministrador.hpp
+//LoginAdministrador.hpp
 #ifndef LOGINADMINISTRADOR_HPP
 #define LOGINADMINISTRADOR_HPP
 
@@ -10,7 +10,6 @@ class LoginAdministrador {
 public:
     LoginAdministrador(const std::vector<Administrador>& administradores);
     bool autenticar(const std::string& nomeDeUsuario, const std::string& senha);
-
 private:
     std::vector<Administrador> administradores;
 };

@@ -1,4 +1,4 @@
-// CadastroAdministrador.hpp
+//CadastroAdministrador.hpp
 #ifndef CADASTROADMINISTRADOR_HPP
 #define CADASTROADMINISTRADOR_HPP
 

@@ -1,10 +1,9 @@
-// CadastroAluno.cpp
 #include "CadastroAluno.hpp"
 #include <fstream>
 
 bool isAlunoRegistrado(const std::vector<Aluno>& alunos, const std::string& nomeDeUsuario) {
-    for (const auto& aluno : alunos) {
-        if (aluno.nomeDeUsuario == nomeDeUsuario) {
+    for (const auto& admin : alunos) {
+        if (admin.nomeDeUsuario == nomeDeUsuario) {
             return true;
         }
     }
@@ -17,5 +16,4 @@ void salvarAlunosEmArquivo(const std::vector<Aluno>& alunos) {
     for (const auto& aluno : alunos) {
         arquivo << aluno.nomeDeUsuario << "\n" << aluno.senha << "\n" << aluno.numeroMatricula << "\n";
     }
-    arquivo.close(); // Fechar o arquivo após escrever os dados
 }

@@ -1,4 +1,4 @@
-// CadastroAdministrador.cpp
+//CadastroAdministrador.cpp
 #include "CadastroAdministrador.hpp"
 #include <fstream>
 
@@ -17,6 +17,4 @@ void salvarAdministradoresEmArquivo(const std::vector<Administrador>& administra
     for (const auto& admin : administradores) {
         arquivo << admin.nomeDeUsuario << "\n" << admin.senha << "\n";
     }
-
-    arquivo.close(); 
 }
