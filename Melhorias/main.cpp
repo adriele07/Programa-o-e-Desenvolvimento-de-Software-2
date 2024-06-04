@@ -22,6 +22,7 @@ std::string getCurrentDate() {
     return oss.str();
 }
 
+
 int main() {
     std::vector<Administrador> administradores;
     std::vector<Aluno> alunos;
