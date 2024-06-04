@@ -10,6 +10,17 @@
 #include "Emprestimo.hpp"
 #include "devolver.hpp"
 #include <string>
+#include <ctime>
+#include <iomanip> // Para std::put_time
+
+std::string getCurrentDate() {
+    std::time_t now = std::time(nullptr);
+    std::tm localTime;
+    localtime_s(&localTime, &now);
+    std::ostringstream oss;
+    oss << std::put_time(&localTime, "%Y-%m-%d");
+    return oss.str();
+}
 
 int main() {
     std::vector<Administrador> administradores;
@@ -76,7 +87,7 @@ int main() {
                             break;
                         }
 
-                        std::string dataEmprestimo = "2022-01-01"; // Assume 'dataEmprestimo' is the current date in string format
+                        std::string dataEmprestimo = getCurrentDate();
                         Emprestimo emprestimo(*livro, alunos[0], dataEmprestimo);
                         emprestimo.realizarEmprestimo();
                         std::cout << "" << std::endl;
@@ -86,7 +97,7 @@ int main() {
                         // Devolver um livro
                         std::cout << "Digite o nome de usuário do aluno que vai devolver o livro: ";
                         std::getline(std::cin, nomeDeUsuario);
-            
+
                         Aluno* aluno = nullptr;
                         for (auto& a : alunos) {
                             if (a.nomeDeUsuario == nomeDeUsuario) {
@@ -94,7 +105,7 @@ int main() {
                                 break;
                             }
                         }
-            
+
                         if (aluno == nullptr) {
                             std::cout << "Aluno não encontrado." << std::endl;
                             break;
@@ -192,30 +203,30 @@ int main() {
                         break;
                     }
                     case 2: {
-    // Adicionar um novo livro
-    std::string titulo, autor;
-    int ano;
-    int livroId = 1; // or generate an appropriate ID
-    std::cout << "Digite o título do livro: ";
-    std::getline(std::cin, titulo);
-    std::cout << "Digite o autor do livro: ";
-    std::getline(std::cin, autor);
-    std::cout << "Digite o ano de publicação do livro: ";
-    std::cin >> ano;
-    std::cin.ignore();  // Ignora o '\n' que fica no buffer após a leitura do número
+                        // Adicionar um novo livro
+                        std::string titulo, autor;
+                        int ano;
+                        int livroId = 1; // or generate an appropriate ID
+                        std::cout << "Digite o título do livro: ";
+                        std::getline(std::cin, titulo);
+                        std::cout << "Digite o autor do livro: ";
+                        std::getline(std::cin, autor);
+                        std::cout << "Digite o ano de publicação do livro: ";
+                        std::cin >> ano;
+                        std::cin.ignore();  // Ignora o '\n' que fica no buffer após a leitura do número
 
-    Livro livro(livroId, titulo, autor, ano);
-    cadastroLivro.adicionarLivro(livro);
+                        Livro livro(livroId, titulo, autor, ano);
+                        cadastroLivro.adicionarLivro(livro);
 
-    std::cout << "Livro cadastrado com sucesso." << std::endl;
-    break;
-}
+                        std::cout << "Livro cadastrado com sucesso." << std::endl;
+                        break;
+                    }
                     case 3: {
                         // Emprestar um livro
-                       
+
                         std::cout << "Digite o nome de usuário do aluno que vai emprestar o livro: ";
                         std::getline(std::cin, nomeDeUsuario);
-            
+
                         Aluno* aluno = nullptr;
                         for (auto& a : alunos) {
                             if (a.nomeDeUsuario == nomeDeUsuario) {
@@ -223,7 +234,7 @@ int main() {
                                 break;
                             }
                         }
-            
+
                         if (aluno == nullptr) {
                             std::cout << "Aluno não encontrado." << std::endl;
                             break;
@@ -239,7 +250,7 @@ int main() {
                             break;
                         }
 
-                        std::string dataEmprestimo = "2022-01-01"; // Assume 'dataEmprestimo' is the current date in string format
+                        std::string dataEmprestimo = getCurrentDate();
                         Emprestimo emprestimo(*livro, alunos[0], dataEmprestimo);
                         emprestimo.realizarEmprestimo();
                         std::cout << "" << std::endl;
@@ -250,7 +261,7 @@ int main() {
                            // Devolver um livro
                         std::cout << "Digite o nome de usuário do aluno que vai devolver o livro: ";
                         std::getline(std::cin, nomeDeUsuario);
-            
+
                         Aluno* aluno = nullptr;
                         for (auto& a : alunos) {
                             if (a.nomeDeUsuario == nomeDeUsuario) {
@@ -258,7 +269,7 @@ int main() {
                                 break;
                             }
                         }
-            
+
                         if (aluno == nullptr) {
                             std::cout << "Aluno não encontrado." << std::endl;
                             break;
