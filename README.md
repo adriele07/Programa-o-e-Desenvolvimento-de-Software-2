@@ -13,36 +13,49 @@ O funcionamento de uma biblioteca está completamente relacionado a um sistema e
 
 ### User stories
 Usuários:
+
   Como usuário quero fazer o login/me autenticar no sistema para acessar as funcionalidades disponíveis ao meu papel (Aluno ou Administrador).
+  
     Critérios de Aceitação:
     Pedir que o usuário forneça nome de usuário e senha.
     Autenticar o nome de usuário e senha fornecidos.
     Feedback se houver falha  na autenticação.
+    
   Como usuário quero sair do sistema para garantir que minha sessão seja encerrada corretamente.
+  
     Critérios de aceitação:
     Mostrar a opção “sair do sistema”.
     Encerrar a sessão do usuário.
     Fornecer feedback sobre o sucesso ou não da ação.
 Alunos:
+
   Como aluno quero alugar e devolver livros utilizando o sistema para poder lê-los e permitir que outros alunos os leiam futuramente. 
+   
      Critérios de Aceitação:
      Pedir ao aluno que insira o título ou ID do livro que deseja pegar emprestado ou devolver.
      (No caso de aluguel) Deve ser mostrado o status de disponibilidade do livro.
      (No caso de devolução) Deve ser mostrado o nome do Aluno que está o alugando atualmente.
      Dar um feedback da ação, tanto em caso de sucesso quanto em caso de alguma falha.
+     
   Como aluno quero saber se o livro que desejo ler está disponível na biblioteca da minha universidade, para evitar de ir até ela e não encontrá-lo.
+    
      Critérios de aceitação:
      Abrir página de pesquisa.
      Pedir título ou autor do livro.
      Mostrar os livros disponíveis que correspondem ao que foi digitado.
+     
 Administrador:
+  
   Como administrador quero poder registrar novos livros no sistema, assim como algumas informações sobre eles, para que eles possam ser emprestados aos alunos.
+    
     Critérios de aceitação:
     Exibir opção “adicionar novo livro”
     Pedir que sejam inseridas informações sobre o livro (título, autor, número de cópias).
     Fornecer feedback sobre o sucesso ou falha na adição do livro.
     Associar um número de ID ao livro.
+  
   Como administrador quero remover livros que não estão mais disponíveis do sistema para manter a organização da biblioteca.
+    
     Critérios de aceitação:
     Exibir opção “remover livro”
     Pedir ID do livro a ser removido.
