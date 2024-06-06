@@ -29,6 +29,8 @@ int main(int argc, char *argv[]) {
     QPushButton *loginButton = new QPushButton("Login");
     QLabel *createAccountLabel = new QLabel("Não tem uma conta?");
     QPushButton *createAccountButton = new QPushButton("Criar Conta");
+    QPushButton *createAccountButton = new QPushButton("Aluno");
+    QPushButton *createAccountButton = new QPushButton("Administrador");
 
     // Adicionar widgets aos layouts
     loginLayout->addWidget(loginLabel);
