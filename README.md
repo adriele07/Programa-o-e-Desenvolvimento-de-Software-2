@@ -153,10 +153,7 @@ Algumas das principais dificuldades encontradas durante o desenvolvimento do pro
  •	Gerenciamento de empréstimos: O sistema precisa manter um registro de quais livros foram emprestados e por quem. Isso exigiu a implementação de lógica para emprestar e devolver livros, bem como para verificar se um livro já foi emprestad
 
 ### Cartões CRC
-![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/f0f97b78-c4b6-4347-a485-e8a2f6cb49a9)
-![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/c3949eb6-4f41-495d-97f2-e85e478e1f84)
-![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/135a8cae-5067-43e3-9b99-e4a877298c59)
-![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/fd3aea22-7ddc-4a2b-9661-6ec80a8211d3)
-![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/a9a789b1-5d59-4f61-a0f6-f81d4eb4e349)
-![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/81cc679b-b0e2-472c-aae5-a90b4cc43024)
-![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/38b06b80-e955-4ddb-b4fc-beba1d11567b)
+![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/c3a73dec-1e3c-46ed-9522-97d4f3c80db5)
+![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/a46cf9ec-274c-4fe0-b9f5-93fd382a8fe2)
+![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/18b1da23-1f0b-4256-a651-3b656d1548ef)
+ 
