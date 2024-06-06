@@ -11,12 +11,51 @@
 ### Objetivo
 O funcionamento de uma biblioteca está completamente relacionado a um sistema eficiente para o controle de empréstimos, cadastros de livros e alunos, bem como a organização dos dados. O sistema desenvolvido visa facilitar e otimizar a gestão de uma biblioteca, oferecendo funcionalidades essenciais para alunos e bibliotecários, com o objetivo central de garantir um ambiente de aprendizado e pesquisa mais dinâmico e acessível.
 
+### User stories
+Usuários:
+  Como usuário quero fazer o login/me autenticar no sistema para acessar as funcionalidades disponíveis ao meu papel (Aluno ou Administrador).
+    Critérios de Aceitação:
+    Pedir que o usuário forneça nome de usuário e senha.
+    Autenticar o nome de usuário e senha fornecidos.
+    Feedback se houver falha  na autenticação.
+  Como usuário quero sair do sistema para garantir que minha sessão seja encerrada corretamente.
+    Critérios de aceitação:
+    Mostrar a opção “sair do sistema”.
+    Encerrar a sessão do usuário.
+    Fornecer feedback sobre o sucesso ou não da ação.
+Alunos:
+  Como aluno quero alugar e devolver livros utilizando o sistema para poder lê-los e permitir que outros alunos os leiam futuramente. 
+     Critérios de Aceitação:
+     Pedir ao aluno que insira o título ou ID do livro que deseja pegar emprestado ou devolver.
+     (No caso de aluguel) Deve ser mostrado o status de disponibilidade do livro.
+     (No caso de devolução) Deve ser mostrado o nome do Aluno que está o alugando atualmente.
+     Dar um feedback da ação, tanto em caso de sucesso quanto em caso de alguma falha.
+  Como aluno quero saber se o livro que desejo ler está disponível na biblioteca da minha universidade, para evitar de ir até ela e não encontrá-lo.
+     Critérios de aceitação:
+     Abrir página de pesquisa.
+     Pedir título ou autor do livro.
+     Mostrar os livros disponíveis que correspondem ao que foi digitado.
+Administrador:
+  Como administrador quero poder registrar novos livros no sistema, assim como algumas informações sobre eles, para que eles possam ser emprestados aos alunos.
+    Critérios de aceitação:
+    Exibir opção “adicionar novo livro”
+    Pedir que sejam inseridas informações sobre o livro (título, autor, número de cópias).
+    Fornecer feedback sobre o sucesso ou falha na adição do livro.
+    Associar um número de ID ao livro.
+  Como administrador quero remover livros que não estão mais disponíveis do sistema para manter a organização da biblioteca.
+    Critérios de aceitação:
+    Exibir opção “remover livro”
+    Pedir ID do livro a ser removido.
+    Executar remoção.
+    Fornecer feedback sobre a ação.
+
 ### Funcionalidades
 O sistema deve ser capaz de realizar todas as ações básicas de uma biblioteca. As funcionalidades do sistema podem ser separadas de acordo com o tipo de usuário:
 
 Alunos têm permissão para realizar seu próprio cadastro, consultar os livros disponíveis, alugar livros e renovar empréstimos.
 
 Administradores, além de todas as funções de um aluno, podem cadastrar, editar e deletar livros, cadastrar, editar e deletar alunos, gerenciar devoluções, além de terem acesso ao repositório com os dados armazenados. 
+
 ### Soluçôes Implementadas  
 •	biblioteca/: Diretório raiz do projeto.
 
@@ -99,3 +138,12 @@ Algumas das principais dificuldades encontradas durante o desenvolvimento do pro
  •	Autenticação de usuários: O sistema precisa autenticar usuários como alunos ou administradores. Isso exigiu a implementação de lógica de autenticação e a manutenção de uma lista de usuários.
  
  •	Gerenciamento de empréstimos: O sistema precisa manter um registro de quais livros foram emprestados e por quem. Isso exigiu a implementação de lógica para emprestar e devolver livros, bem como para verificar se um livro já foi emprestad
+
+### Cartões CRC
+![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/f0f97b78-c4b6-4347-a485-e8a2f6cb49a9)
+![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/c3949eb6-4f41-495d-97f2-e85e478e1f84)
+![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/135a8cae-5067-43e3-9b99-e4a877298c59)
+![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/fd3aea22-7ddc-4a2b-9661-6ec80a8211d3)
+![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/a9a789b1-5d59-4f61-a0f6-f81d4eb4e349)
+![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/81cc679b-b0e2-472c-aae5-a90b4cc43024)
+![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/38b06b80-e955-4ddb-b4fc-beba1d11567b)
