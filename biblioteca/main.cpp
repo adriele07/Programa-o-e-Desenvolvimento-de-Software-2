@@ -15,6 +15,7 @@
 #include <ctime>
 #include <iomanip> 
 
+
 std::string getCurrentDate() {
     std::time_t now = std::time(nullptr);
     std::tm localTime;
@@ -59,13 +60,13 @@ int main() {
 
         switch (opcao) {
         case 1: {
-            std::cout << "Digite o nome de usuário do aluno: ";
+            std::cout << "Digite o nome de usuario do aluno: ";
             std::getline(std::cin, nomeDeUsuario);
             std::cout << "Digite a senha do aluno: ";
             std::getline(std::cin, senha);
 
             if (isAlunoRegistrado(alunos, nomeDeUsuario)) {
-                std::cout << "Autenticação bem-sucedida como aluno." << std::endl;
+                std::cout << "Autenticacao bem-sucedida como aluno." << std::endl;
                 while (true) {
                     std::cout << "Escolha uma opcao:\n";
                     std::cout << "1. Emprestar livro\n";
@@ -81,12 +82,12 @@ int main() {
                     case 1: {
                         // Emprestar um livro
                         std::string titulo;
-                        std::cout << "Digite o título do livro que você quer emprestar: ";
+                        std::cout << "Digite o titulo do livro que voce quer emprestar: ";
                         std::getline(std::cin, titulo);
 
                         Livro* livro = cadastroLivro.procurarLivro(titulo);
                         if (livro == nullptr) {
-                            std::cout << "Livro não encontrado." << std::endl;
+                            std::cout << "Livro nao encontrado." << std::endl;
                             break;
                         }
 
@@ -98,7 +99,7 @@ int main() {
                     }
                     case 2: {
                         // Devolver um livro
-                        std::cout << "Digite o nome de usuário do aluno que vai devolver o livro: ";
+                        std::cout << "Digite o nome de usuario do aluno que vai devolver o livro: ";
                         std::getline(std::cin, nomeDeUsuario);
 
                         Aluno* aluno = nullptr;
@@ -110,16 +111,16 @@ int main() {
                         }
 
                         if (aluno == nullptr) {
-                            std::cout << "Aluno não encontrado." << std::endl;
+                            std::cout << "Aluno nao encontrado." << std::endl;
                             break;
                         }
                         std::string titulo;
-                        std::cout << "Digite o título do livro que você quer devolver: ";
+                        std::cout << "Digite o titulo do livro que voce quer devolver: ";
                         std::getline(std::cin, titulo);
 
                         Livro* livro = cadastroLivro.procurarLivro(titulo);
                         if (livro == nullptr) {
-                            std::cout << "Livro não encontrado." << std::endl;
+                            std::cout << "Livro nao encontrado." << std::endl;
                             break;
                         }
 
@@ -134,16 +135,16 @@ int main() {
                     case 3: {
                         // Consultar um livro
                         std::string titulo;
-                        std::cout << "Digite o título do livro que você quer consultar: ";
+                        std::cout << "Digite o título do livro que voce quer consultar: ";
                         std::getline(std::cin, titulo);
 
                         Livro* livro = cadastroLivro.procurarLivro(titulo);
                         if (livro == nullptr) {
-                            std::cout << "Livro não encontrado." << std::endl;
+                            std::cout << "Livro nao encontrado." << std::endl;
                             break;
                         }
 
-                        std::cout << "Título: " << livro->getTitulo() << std::endl;
+                        std::cout << "Titulo: " << livro->getTitulo() << std::endl;
                         std::cout << "Autor: " << livro->getAutor() << std::endl;
                         std::cout << "Ano: " << livro->getAno() << std::endl;
                         break;
@@ -152,25 +153,25 @@ int main() {
                         return 0;  // Sair do programa
                     }
                     default:
-                        std::cout << "Opção inválida. Tente novamente.\n";
+                        std::cout << "Opcao invalida. Tente novamente.\n";
                     }
                 }
             }
             else {
-                std::cout << "Erro: Autenticação falhou." << std::endl;
+                std::cout << "Erro: Autenticacao falhou." << std::endl;
             }
             break;
         }
         case 2: {
             // Autenticar um administrador
-            std::cout << "Digite o nome de usuário do administrador: ";
+            std::cout << "Digite o nome de usuario do administrador: ";
             std::getline(std::cin, nomeDeUsuario);
             std::cout << "Digite a senha do administrador: ";
             std::getline(std::cin, senha);
 
             LoginAdministrador loginAdmin(administradores);
             if (loginAdmin.autenticar(nomeDeUsuario, senha)) {
-                std::cout << "Autenticação bem-sucedida como administrador." << std::endl;
+                std::cout << "Autenticacao bem-sucedida como administrador." << std::endl;
                 while (true) {
                     std::cout << "Escolha uma opcao:\n";
                     std::cout << "1. Cadastrar aluno\n";
@@ -178,7 +179,7 @@ int main() {
                     std::cout << "3. Emprestar livro\n";
                     std::cout << "4. Devolver livro\n";
                     std::cout << "5. Editar livro/Excluir livro\n";
-                    std::cout << "5. Editar Aluno/Excluir Aluno\n";
+                    std::cout << "6. Editar Aluno/Excluir Aluno\n";
                     std::cout << "7. Sair\n";
 
                     int opcaoAdmin;
@@ -188,16 +189,16 @@ int main() {
                     switch (opcaoAdmin) {
                     case 1: {
                         // Cadastrar um novo aluno
-                        std::cout << "Digite o nome de usuário do aluno: ";
+                        std::cout << "Digite o nome de usuario do aluno: ";
                         std::getline(std::cin, nomeDeUsuario);
 
                         if (isAlunoRegistrado(alunos, nomeDeUsuario)) {
-                            std::cout << "Erro: Aluno já registrado." << std::endl;
+                            std::cout << "Erro: Aluno ja registrado." << std::endl;
                         }
                         else {
                             std::cout << "Digite a senha do aluno: ";
                             std::getline(std::cin, senha);
-                            std::cout << "Digite o número de matrícula do aluno: ";
+                            std::cout << "Digite o numero de matricula do aluno: ";
                             std::getline(std::cin, numeroMatricula);
 
                             alunos.push_back({ nomeDeUsuario, senha, numeroMatricula });
@@ -212,11 +213,11 @@ int main() {
                         std::string titulo, autor;
                         int ano;
                         int livroId = 1; // or generate an appropriate ID
-                        std::cout << "Digite o título do livro: ";
+                        std::cout << "Digite o titulo do livro: ";
                         std::getline(std::cin, titulo);
                         std::cout << "Digite o autor do livro: ";
                         std::getline(std::cin, autor);
-                        std::cout << "Digite o ano de publicação do livro: ";
+                        std::cout << "Digite o ano de publicacao do livro: ";
                         std::cin >> ano;
                         std::cin.ignore();  // Ignora o '\n' que fica no buffer após a leitura do número
 
@@ -241,7 +242,7 @@ int main() {
                         }
 
                         if (aluno == nullptr) {
-                            std::cout << "Aluno não encontrado." << std::endl;
+                            std::cout << "Aluno nao encontrado." << std::endl;
                             break;
                         }
 
@@ -251,7 +252,7 @@ int main() {
 
                         Livro* livro = cadastroLivro.procurarLivro(titulo);
                         if (livro == nullptr) {
-                            std::cout << "Livro não encontrado." << std::endl;
+                            std::cout << "Livro nao encontrado." << std::endl;
                             break;
                         }
 
@@ -263,7 +264,7 @@ int main() {
                     }
                     case 4: {
                         // Devolver um livro
-                        std::cout << "Digite o nome de usuário do aluno que vai devolver o livro: ";
+                        std::cout << "Digite o nome de usuario do aluno que vai devolver o livro: ";
                         std::getline(std::cin, nomeDeUsuario);
 
                         Aluno* aluno = nullptr;
@@ -275,17 +276,17 @@ int main() {
                         }
 
                         if (aluno == nullptr) {
-                            std::cout << "Aluno não encontrado." << std::endl;
+                            std::cout << "Aluno nao encontrado." << std::endl;
                             break;
                         }
 
                         std::string titulo;
-                        std::cout << "Digite o título do livro que você quer devolver: ";
+                        std::cout << "Digite o titulo do livro que voce quer devolver: ";
                         std::getline(std::cin, titulo);
 
                         Livro* livro = cadastroLivro.procurarLivro(titulo);
                         if (livro == nullptr) {
-                            std::cout << "Livro não encontrado." << std::endl;
+                            std::cout << "Livro nao encontrado." << std::endl;
                             break;
                         }
 
@@ -357,7 +358,7 @@ int main() {
                         } else if (opcao == 2) {
                             livros.erase(std::remove_if(livros.begin(), livros.end(), [id](const std::vector<std::string>& livro) { return std::stoi(livro[0]) == id; }), livros.end());
                         } else {
-                            std::cout << "Opção inválida. Tente novamente.\n";
+                            std::cout << "Opcao invalida. Tente novamente.\n";
                             break;
                         }
 
@@ -392,10 +393,10 @@ int main() {
 
                             // Editar ou excluir aluno
                             std::string nomeDeUsuario;
-                            std::cout << "Digite o nome de usuário do aluno que deseja editar ou excluir: ";
+                            std::cout << "Digite o nome de usuario do aluno que deseja editar ou excluir: ";
                             std::cin >> nomeDeUsuario;
 
-                            std::cout << "Escolha uma opção:\n";
+                            std::cout << "Escolha uma opcao:\n";
                             std::cout << "1. Editar aluno\n";
                             std::cout << "2. Excluir aluno\n";
 
@@ -413,7 +414,7 @@ int main() {
                                 std::cout << "Digite a nova senha do aluno: ";
                                 std::cin >> novaSenha;
 
-                                std::cout << "Digite o novo número de matrícula do aluno: ";
+                                std::cout << "Digite o novo numero de matricula do aluno: ";
                                 std::cin >> novoNumeroMatricula;
 
                                 for (auto& aluno : alunos) {
@@ -428,7 +429,7 @@ int main() {
                                     return aluno[0] == nomeDeUsuario;
                                 }), alunos.end());
                             } else {
-                                std::cout << "Opção inválida. Tente novamente.\n";
+                                std::cout << "Opção invalida. Tente novamente.\n";
                                 break;
                             }
 
@@ -445,13 +446,13 @@ int main() {
                             return 0;  // Sair do programa
                         }
                     default:
-                        std::cout << "Opção inválida. Tente novamente.\n";
+                        std::cout << "Opção invalida. Tente novamente.\n";
                     }
 
                 }
             }
             else {
-                std::cout << "Erro: Autenticação falhou." << std::endl;
+                std::cout << "Erro: Autenticacao falhou." << std::endl;
             }
             break;
         }
@@ -460,10 +461,12 @@ int main() {
             return 0;
         }
         default:
-            std::cout << "Opção inválida. Tente novamente.\n";
+            std::cout << "Opção invalida. Tente novamente.\n";
         }
     }
 }
+        
+            
         
             
         
