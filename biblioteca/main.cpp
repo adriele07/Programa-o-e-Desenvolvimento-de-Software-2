@@ -135,7 +135,7 @@ int main() {
                     case 3: {
                         // Consultar um livro
                         std::string titulo;
-                        std::cout << "Digite o título do livro que voce quer consultar: ";
+                        std::cout << "Digite o titulo do livro que voce quer consultar: ";
                         std::getline(std::cin, titulo);
 
                         Livro* livro = cadastroLivro.procurarLivro(titulo);
@@ -230,7 +230,7 @@ int main() {
                     case 3: {
                         // Emprestar um livro
 
-                        std::cout << "Digite o nome de usuário do aluno que vai emprestar o livro: ";
+                        std::cout << "Digite o nome de usuario do aluno que vai emprestar o livro: ";
                         std::getline(std::cin, nomeDeUsuario);
 
                         Aluno* aluno = nullptr;
@@ -247,7 +247,7 @@ int main() {
                         }
 
                         std::string titulo;
-                        std::cout << "Digite o título do livro que você quer emprestar: ";
+                        std::cout << "Digite o titulo do livro que voce quer emprestar: ";
                         std::getline(std::cin, titulo);
 
                         Livro* livro = cadastroLivro.procurarLivro(titulo);
@@ -465,8 +465,6 @@ int main() {
         }
     }
 }
-        
-            
         
             
         
