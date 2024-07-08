@@ -1,1 +1,81 @@
+1
+A Menina que Roubava Livros
+Markus Zusak
+2005
+2
+O Hobbit
+J.R.R. Tolkien
+1937
+3
+1984
+George Orwell
+1949
+4
+Orgulho e Preconceito
+Jane Austen
+1813
+5
+Cem Anos de Solidão
+Gabriel García Márquez
+1967
+6
+Harry Potter e a Pedra Filosofal
+J.K. Rowling
+1997
+7
+Dom Quixote
+Miguel de Cervantes
+1605
+8
+O Pequeno Príncipe
+Antoine de Saint-Exupéry
+1943
+9
+Crime e Castigo
+Fiódor Dostoiévski
+1866
+10
+A Revolução dos Bichos
+George Orwell
+1945
+11
+A Metamorfose
+Franz Kafka
+1915
+12
+Memórias Póstumas de Brás Cubas
+Machado de Assis
+1881
+13
+A Sangue Frio
+Truman Capote
+1966
+14
+O Senhor dos Anéis: A Sociedade do Anel
+J.R.R. Tolkien
+1954
+15
+O Nome do Vento
+Patrick Rothfuss
+2007
+16
+Anna Karenina
+Liev Tolstói
+1877
+17
+1984
+George Orwell
+1949
+18
+O Apanhador no Campo de Centeio
+J.D. Salinger
+1951
+19
+A Ilha do Tesouro
+Robert Louis Stevenson
+1883
+20
+A Insustentável Leveza do Ser
+Milan Kundera
+1984
 
