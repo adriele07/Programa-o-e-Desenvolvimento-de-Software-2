@@ -109,14 +109,6 @@ Administradores, além de todas as funções de um aluno, podem cadastrar, edita
 
 - **Gerenciamento de Empréstimos:** O sistema utiliza a classe "Emprestimo" para gerenciar os empréstimos de livros. Essa classe realiza verificações para determinar se um livro está disponível para empréstimo antes de efetuar a operação, além de atualizar o status do livro após o empréstimo ser realizado. Essas funcionalidades são essenciais para o controle eficiente dos recursos da biblioteca.
   
-### Instalação e Manual de Uso 
-#### Instalação 
-O sistema é um programa C++ e requer um compilador C++ para ser executado. Aqui estão as etapas para instalar e executar o sistema:
-1.	Instale um compilador C++, como o GCC.
-2.	Clone o repositório do projeto.
-3.	Navegue até o diretório do projeto.
-4.	Compile o programa com o comando g++ -o biblioteca main.cpp.
-5.	Execute o programa com o comando ./biblioteca.
 #### Manual de Uso 
 **1. Introdução**
 
@@ -124,7 +116,11 @@ Este manual fornece instruções detalhadas sobre como usar o Sistema de Gerenci
 
 **2. Iniciando o Sistema**
 
-Para iniciar o sistema, navegue até o diretório do projeto no terminal e execute o comando ./biblioteca. Isso iniciará o programa.
+
+https://github.com/user-attachments/assets/77bc3f45-c304-419c-9903-e195479e0af7
+
+
+
 
 **3. Autenticação**
 
