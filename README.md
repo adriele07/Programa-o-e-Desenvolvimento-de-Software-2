@@ -165,6 +165,8 @@ Melhorar a usabilidade: Queríamos proporcionar uma experiência mais intuitiva 
 Demonstrar nossa proatividade: Achamos importante mostrar que estamos motivados a ir além dos requisitos básicos do curso para adquirir novos conhecimentos.
 Senhas e usuarios para a interface estão nos arquivos alunos.txt e administrador.txt na pasta:interface_biblioteca_bonus_obs_sem_inclementacoes_de_biblioteca
 
+Para ver codigo da interface acesse a branch teste
+
 https://github.com/user-attachments/assets/cc0e521a-64d0-40ff-bd39-6dd6daf48b64
 
 
