@@ -167,6 +167,7 @@ Nosso objetivo com essa implementação foi:
 Aprender e aplicar novos conceitos: Estudamos como criar interfaces gráficas e como integrá-las com o nosso sistema existente.
 Melhorar a usabilidade: Queríamos proporcionar uma experiência mais intuitiva e amigável para os usuários do nosso sistema.
 Demonstrar nossa proatividade: Achamos importante mostrar que estamos motivados a ir além dos requisitos básicos do curso para adquirir novos conhecimentos.
+Senhas e usuarios para a interface estão nos arquivos alunos.txt e administrador.txt na pasta:interface_biblioteca_bonus_obs_sem_inclementacoes_de_biblioteca
 
 https://github.com/user-attachments/assets/cc0e521a-64d0-40ff-bd39-6dd6daf48b64
 
