@@ -156,4 +156,17 @@ Algumas das principais dificuldades encontradas durante o desenvolvimento do pro
 ![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/c3a73dec-1e3c-46ed-9522-97d4f3c80db5)
 ![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/a46cf9ec-274c-4fe0-b9f5-93fd382a8fe2)
 ![image](https://github.com/adriele07/Programa-o-e-Desenvolvimento-de-Software-2/assets/171177130/18b1da23-1f0b-4256-a651-3b656d1548ef)
+
  
+obs:Embora a criação de uma interface gráfica não fizesse parte dos requisitos do trabalho, dedicamos tempo extra para aprender e implementar esse recurso.
+
+A interface gráfica que desenvolvemos foi um esforço adicional que decidimos empreender para expandir nossos conhecimentos e habilidades em programação. Sabemos que ela não será avaliada como parte do trabalho, mas gostaríamos muito que execulte para ver o que conseguimos alcançar.
+
+Nosso objetivo com essa implementação foi:
+
+Aprender e aplicar novos conceitos: Estudamos como criar interfaces gráficas e como integrá-las com o nosso sistema existente.
+Melhorar a usabilidade: Queríamos proporcionar uma experiência mais intuitiva e amigável para os usuários do nosso sistema.
+Demonstrar nossa proatividade: Achamos importante mostrar que estamos motivados a ir além dos requisitos básicos do curso para adquirir novos conhecimentos.
+https://github.com/user-attachments/assets/cc0e521a-64d0-40ff-bd39-6dd6daf48b64
+
+
